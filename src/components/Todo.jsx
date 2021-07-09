@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
-import { actions } from "../redux";
+import { todoActions } from "../redux/actions/index";
 import alertify from "alertifyjs";
 
 const Todo = () => {
   const { todos } = useSelector((state) => state.todoReducer);
   const dispatch = useDispatch();
   const { removeTodo, doneTodo, getTodos } = bindActionCreators(
-    actions,
+    todoActions,
     dispatch
   );
 
@@ -44,7 +44,7 @@ const Todo = () => {
                 <button
                   className="btn btn-success me-2"
                   onClick={() => doneTodoHandler(todo)}
-                  disabled = {todo.done}
+                  disabled={todo.done}
                 >
                   Done
                 </button>

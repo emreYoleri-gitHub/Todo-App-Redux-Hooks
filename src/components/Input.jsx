@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import alertify from "alertifyjs";
 import { bindActionCreators } from "redux";
-import { actions } from "../redux/index";
+import { todoActions } from "../redux/actions/index";
 
 const Input = () => {
   const [inpValue, setInpValue] = useState("");
 
   const dispatch = useDispatch();
-  const { addTodo } = bindActionCreators(actions, dispatch);
+  const { addTodo } = bindActionCreators(todoActions, dispatch);
   const clickHandler = () => {
     if (inpValue.length) {
       alertify.success(`${inpValue} yapılacaklar listesine eklendi`, 1);
